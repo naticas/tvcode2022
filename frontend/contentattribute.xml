@@ -1,0 +1,34 @@
+<Service version="1">
+	<UniqueIdentifier>tag:example.com,2020:Channel1</UniqueIdentifier>
+	<ServiceInstance priority="1">
+		<DisplayName>Channel One</DisplayName>
+		<ContentAttributes>
+			<AudioAttributes>
+				<tva:Coding href="urn:dvb:metadata:cs:AudioCodecCS:2007:1.2.4">
+					<tva:Name>MPEG-4 High Efficiency Advanced Audio Profile @ Level 4</tva:Name>
+				</tva:Coding>
+				<tva:AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6" 
+						type="original">en</tva:AudioLanguage>
+			</AudioAttributes>
+			<VideoAttributes>
+				<tva:Coding href="urn:dvb:metadata:cs:VideoCodecCS:2007:1.4.14">
+					<tva:Name>H264 High Profile @ Level 4.2</tva:Name>
+				</tva:Coding>
+			</VideoAttributes>
+		</ContentAttributes>
+		<DASHDeliveryParameters>
+			<UriBasedLocation contentType="application/dash+xml">
+				<URI>https://cdn.example.com/channel1/dash/manifest.mpd</URI>
+			</UriBasedLocation>
+		</DASHDeliveryParameters>
+	</ServiceInstance>
+	<ServiceName>Channel 1</ServiceName>
+	<ProviderName>Example Provider</ProviderName>
+	<ServiceType href="urn:dvb:metadata:cs:ServiceTypeCS:2019:linear"/>
+	<ContentGuideSource CGSID="cgs-example-01">
+		<ProviderName xml:lang="en">Example Metadata</ProviderName>
+		<ScheduleInfoEndpoint contentType="application/xml">
+			<URI>https://cgs.example.com/schedule</URI>
+		</ScheduleInfoEndpoint>
+	</ContentGuideSource>
+</Service>
