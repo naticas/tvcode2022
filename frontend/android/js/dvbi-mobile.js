@@ -87,7 +87,15 @@ window.onload = async function () {
   player.setAutoPlay(true);
   // ('../example.xml'??)
 
-  const id = prompt('아이디를 입력하세요');
+  //SQL에서 latest channel 을 가져오는 방법
+  //const id = prompt('아이디를 입력하세요');
+
+  const urlParams = new URLSearchParams(window.location.search);
+  // const id = urlParams.get('id') ? urlParams.get('id') : prompt('아이디를 입력하세요');
+  const id = urlParams.get('id') || prompt('아이디를 입력하세요');
+  // if (!id) {
+  //   id = prompt('아이디를 입력하세요');
+  // }
 
   try {
     const data = await fetch(
@@ -216,7 +224,8 @@ function loadServicelist(list) {
       // if (user && user.channel > 0) {
       //   channelSelected(user.channel);
       // } else channelSelected(channels[0].id);
-      console.log(channels);
+      //latest channel 이 존재하지 않을 때는 0번으로 시작해야 함.
+      console.log(channels, '채널체크');
       channelSelected(user && user.channel > 0 ? String(user.channel) : channels[0].id);
       //channelSelected(channels[0].id);
       populate();
