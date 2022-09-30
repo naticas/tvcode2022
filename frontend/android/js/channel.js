@@ -168,11 +168,14 @@ Channel.prototype.updateChannelInfo = function () {
   const channel_banner = document.querySelector(`#channel_banner`);
   channel_banner.style.display = `flex`;
   channel_banner.style.justifyContent = `flex-end`;
-  channel_banner.style.alignItems = `center`;
+  channel_banner.style.flexDirection = `column`;
+  channel_banner.style.alignItems = `flex-end`;
   channel_banner.style.fontSize = `4.5em`;
-  let banner = `<span><img src="${self.image || `./image/empty.png`}"</span>`;
-  banner += `<span>${self.lcn}.</span>`;
-  banner += `<span>${self.title}</span>`;
+  channel_banner.style.paddingTop = `12px`;
+
+  let banner = ``;
+  banner += `<span style="font-size:50px; border-right: 8px white solid; padding-right: 8px; ">${self.lcn}</span>`;
+  banner += `<span style="font-size:22px; width:240px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;text-align:right">${self.title}</span>`;
   //left channel info
   channelInfo.innerHTML = info;
   //channel banner upper-right

@@ -40,11 +40,12 @@ async function channelSelected(channelId) {
             resolve();
             clearInterval(a);
           }
-        }, 20);
+        }, 200);
       });
       console.log('34', player.getActiveStream());
       player.play();
       //seek - seconds
+      console.log('seekflag', seekflag);
       if (!seekflag) {
         console.log('playtime_체크', user.play_time);
         player.seek(user.play_time);
