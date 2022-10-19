@@ -26,6 +26,7 @@ async function channelSelected(channelId) {
   // }
 
   console.log('flag1', newChannel.sourceType);
+
   switch (newChannel.sourceType) {
     case 'urn:dvb:metadata:source:dvb-dash':
       initializeVideo = true;
@@ -71,6 +72,11 @@ async function channelSelected(channelId) {
       el.style.display = 'block';
       break;
   }
+  setTimeout(() => {
+    if (newChannel.linkageType === 'protect') {
+      alert('현재 시청 중이신 채널은 유료채널 입니다. 가입 동의하시겠습니까?');
+    }
+  }, 2000);
 
   if (user) {
     fetch(`http://Appserver-env.eba-fjvbcv79.ap-northeast-2.elasticbeanstalk.com/user/${user.id}`, {

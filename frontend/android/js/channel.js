@@ -69,6 +69,7 @@ Channel.prototype.init = function (init_obj, channel_index) {
   this.sourceType = init_obj.contentType;
   this.description = init_obj.serviceDescription;
   this.providerName = init_obj.providerName;
+  this.linkageType = init_obj.linkageType;
 
   //   self.contentGuideURI = "~~~~~~~"
   self.getNowNext();
